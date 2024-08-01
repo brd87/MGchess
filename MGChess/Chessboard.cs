@@ -8,18 +8,11 @@ namespace MGChess
 {
     public class Chessboard
     {
-        //public int[,] Board { get => new int[8, 8]; }
-        public int[,] Board = new int[8, 8]; //[y,x]
-        //public List<List<Piece>> Pieces { get; set; } = new List<List<Piece>>();
+        public int[,] Board = new int[8, 8];
         public List<List<Piece>> Pieces = new List<List<Piece>>();
         int turn = 1;
-        int[] Kings = new int[2]; //0-white, 1-black
+        int[] Kings = new int[2];
         bool[] KingsDanger = new bool[2];
-        /*
-        int[,] Board = new int[8,8]; //[y,x]
-        List<List<Piece>> Pieces = new List<List<Piece>>();
-        
-        */
         public Chessboard()
         {
             int row = 0;

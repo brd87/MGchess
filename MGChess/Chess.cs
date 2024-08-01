@@ -27,7 +27,6 @@ namespace MGChess
 
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
             chessboard = new Chessboard();
             _graphics.IsFullScreen = false;
             _graphics.PreferredBackBufferWidth = 256;
@@ -47,7 +46,6 @@ namespace MGChess
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            // TODO: use this.Content to load your game content here
             background = Content.Load<Texture2D>("board");
             pieceSprites = Content.Load<Texture2D>("pieces");
             mark = Content.Load<Texture2D>("mark");
@@ -60,9 +58,8 @@ namespace MGChess
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            // TODO: Add your update logic here
             MouseState state = Mouse.GetState();
-            if (state.RightButton == ButtonState.Pressed)
+            if (state.LeftButton == ButtonState.Pressed)
             {
                 int col = state.Y / 32;
                 int row = state.X / 32;
@@ -82,7 +79,7 @@ namespace MGChess
                 }
             }
 
-            if (state.LeftButton == ButtonState.Pressed)
+            if (state.RightButton == ButtonState.Pressed)
             {
                 int col = state.Y / 32;
                 int row = state.X / 32;
@@ -109,7 +106,6 @@ namespace MGChess
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
             _spriteBatch.Begin();
             _spriteBatch.Draw(background, new Rectangle(0, 0, 256, 256), Color.White);
             chessboard.drawPieces(pieceSprites, _spriteBatch);
